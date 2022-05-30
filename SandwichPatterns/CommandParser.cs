@@ -2,14 +2,12 @@ namespace SandwichPatterns;
 
 public class CommandParser
 {
-    private List<Sandwich> _sandwiches;
+    private readonly List<Sandwich> _sandwiches;
 
     public CommandParser(List<Sandwich> sandwiches)
     {
         this._sandwiches = sandwiches;
     }
-    
-    
 
     public Dictionary<Sandwich, int> parse(string[] args)
     {
@@ -19,7 +17,7 @@ public class CommandParser
             throw new Exception("Wrong arguments number");
         }
 
-        for (int i = 0; i < args.Length - 1; i+=2)
+        for (var i = 0; i < args.Length - 1; i += 2)
         {
             int nb = short.Parse(args[i]);
 
@@ -38,7 +36,7 @@ public class CommandParser
                 res.Add(sandwich, nb);
             }
         }
-        
+
         return res;
     }
 }

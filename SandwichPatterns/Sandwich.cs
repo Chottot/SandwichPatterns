@@ -9,13 +9,11 @@ public class Sandwich
         set => _name = value ?? throw new ArgumentNullException(nameof(value));
     }
 
-    private readonly Dictionary<Ingredient, int> _ingredients;
-
-    public Dictionary<Ingredient, int> Ingredients => _ingredients;
+    public Dictionary<Ingredient, int> Ingredients { get; }
 
     public Sandwich(string name, Dictionary<Ingredient, int> ingredients)
     {
         this._name = name;
-        this._ingredients = ingredients;
+        this.Ingredients = ingredients;
     }
 }

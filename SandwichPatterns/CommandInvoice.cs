@@ -2,7 +2,7 @@ namespace SandwichPatterns;
 
 public class CommandInvoice
 {
-    private Dictionary<Sandwich, double> _ingredientPrices;
+    private readonly Dictionary<Sandwich, double> _ingredientPrices;
 
     public CommandInvoice(Dictionary<Sandwich, double> ingredientPrices)
     {
