@@ -2,11 +2,11 @@ namespace SandwichPatterns;
 
 public class CommandParser
 {
-    private List<Sandwich> sandwiches;
+    private List<Sandwich> _sandwiches;
 
     public CommandParser(List<Sandwich> sandwiches)
     {
-        this.sandwiches = sandwiches;
+        this._sandwiches = sandwiches;
     }
 
     public Dictionary<Sandwich, int> parse(string[] args)

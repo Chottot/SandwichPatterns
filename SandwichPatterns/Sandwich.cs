@@ -2,12 +2,18 @@ namespace SandwichPatterns;
 
 public class Sandwich
 {
-    private string name;
-    private Dictionary<Ingredient, int> ingredients;
+    private string _name;
+    public string Name
+    {
+        get => _name;
+        set => _name = value ?? throw new ArgumentNullException(nameof(value));
+    }
+
+    private Dictionary<Ingredient, int> _ingredients;
 
     public Sandwich(string name, Dictionary<Ingredient, int> ingredients)
     {
-        this.name = name;
-        this.ingredients = ingredients;
+        this._name = name;
+        this._ingredients = ingredients;
     }
 }

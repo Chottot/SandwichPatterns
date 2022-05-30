@@ -2,10 +2,10 @@ namespace SandwichPatterns;
 
 public class Ingredient
 {
-    private string name;
+    private string _name;
 
     public Ingredient(string name)
     {
-        this.name = name;
+        this._name = name;
     }
 }
