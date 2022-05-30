@@ -9,7 +9,9 @@ public class Sandwich
         set => _name = value ?? throw new ArgumentNullException(nameof(value));
     }
 
-    private Dictionary<Ingredient, int> _ingredients;
+    private readonly Dictionary<Ingredient, int> _ingredients;
+
+    public Dictionary<Ingredient, int> Ingredients => _ingredients;
 
     public Sandwich(string name, Dictionary<Ingredient, int> ingredients)
     {
