@@ -6,7 +6,7 @@ public class CommandParserTest
 {
     private CommandParser _comandParser;
     private Sandwich _sandwich1;
-    
+
     [SetUp]
     public void Setup()
     {
@@ -18,14 +18,13 @@ public class CommandParserTest
     }
 
     [Test]
-    public void Test1()
+    public void should_get_one_sandwich1()
     {
-        string[] inputs = { _sandwich1.Name };
+        string[] inputs = { "1", _sandwich1.Name };
         var expected = new Dictionary<Sandwich, int> { { _sandwich1, 1 } };
 
         var res = _comandParser.parse(inputs);
         
-        
-        Assert.Equals(res, expected);
+        Assert.That(expected, Is.EqualTo(res));
     }
 }

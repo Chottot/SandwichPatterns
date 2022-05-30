@@ -8,9 +8,30 @@ public class CommandParser
     {
         this._sandwiches = sandwiches;
     }
+    
+    
 
     public Dictionary<Sandwich, int> parse(string[] args)
     {
-        throw new NotImplementedException();
+        var res = new Dictionary<Sandwich, int>();
+        if (args.Length < 2 || args.Length % 2 != 0)
+        {
+            throw new Exception("Wrong arguments number");
+        }
+
+        for (int i = 0; i < args.Length - 1; i+=2)
+        {
+            int nb = short.Parse(args[i]);
+
+            var sandwich = _sandwiches.Find(sandwich => sandwich.Name == args[i + 1]);
+            if (sandwich == null)
+            {
+                throw new Exception("undefined sandwich");
+            }
+            
+            res.Add(sandwich, nb);
+        }
+        
+        return res;
     }
 }
