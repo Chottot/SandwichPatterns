@@ -1,3 +1,9 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿namespace SandwichPatterns;
 
-Console.WriteLine("Hello, World!");
+public class SandwichPatterns
+{
+    public static void Main(string []args)
+    {
+        Console.WriteLine("Main Method");
+    }   
+}
