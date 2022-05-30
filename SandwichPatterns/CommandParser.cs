@@ -28,8 +28,15 @@ public class CommandParser
             {
                 throw new Exception("undefined sandwich");
             }
-            
-            res.Add(sandwich, nb);
+
+            if (res.ContainsKey(sandwich))
+            {
+                res[sandwich] += nb;
+            }
+            else
+            {
+                res.Add(sandwich, nb);
+            }
         }
         
         return res;

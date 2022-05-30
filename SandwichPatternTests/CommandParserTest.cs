@@ -27,4 +27,15 @@ public class CommandParserTest
         
         Assert.That(expected, Is.EqualTo(res));
     }
+    
+    [Test]
+    public void should_get_two_sandwich1()
+    {
+        string[] inputs = { "1", _sandwich1.Name, "1", _sandwich1.Name };
+        var expected = new Dictionary<Sandwich, int> { { _sandwich1, 2 } };
+
+        var res = _comandParser.parse(inputs);
+        
+        Assert.That(expected, Is.EqualTo(res));
+    }
 }
