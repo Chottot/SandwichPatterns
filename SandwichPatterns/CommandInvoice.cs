@@ -28,7 +28,7 @@ public class CommandInvoice
             {
                 Console.WriteLine("\t"+ingredient.Key.Name);
             }
-            
         }
+        Console.WriteLine("Prix total :" + sum +"€");
     }
 }

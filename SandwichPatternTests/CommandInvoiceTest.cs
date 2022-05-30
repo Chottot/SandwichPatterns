@@ -43,7 +43,7 @@ public class CommandInvoiceTest
         var inputs = new Dictionary<Sandwich, int>()
             { { _sandwich1, 1 } };
 
-        var expected = "1 sandwich1\r\n\tingredient1\r\n\tingredient2\r\n\tingredient3\r\n";
+        const string expected = "1 sandwich1\r\n\tingredient1\r\n\tingredient2\r\n\tingredient3\r\nPrix total :2,3€\r\n";
 
         _comandInvoice.display(inputs);
 
@@ -56,7 +56,7 @@ public class CommandInvoiceTest
         var inputs = new Dictionary<Sandwich, int>()
             { { _sandwich1, 2 } };
 
-        var expected = "2 sandwich1\r\n\tingredient1\r\n\tingredient2\r\n\tingredient3\r\n";
+        const string expected = "2 sandwich1\r\n\tingredient1\r\n\tingredient2\r\n\tingredient3\r\nPrix total :4,6€\r\n";
 
         _comandInvoice.display(inputs);
 
@@ -69,8 +69,7 @@ public class CommandInvoiceTest
         var inputs = new Dictionary<Sandwich, int>()
             { { _sandwich1, 1 }, { _sandwich2, 1 } };
 
-        var expected =
-            "1 sandwich1\r\n\tingredient1\r\n\tingredient2\r\n\tingredient3\r\n1 sandwich2\r\n\tingredient4\r\n\tingredient2\r\n\tingredient3\r\n";
+        const string expected = "1 sandwich1\r\n\tingredient1\r\n\tingredient2\r\n\tingredient3\r\n1 sandwich2\r\n\tingredient4\r\n\tingredient2\r\n\tingredient3\r\nPrix total :7,7€\r\n";
 
         _comandInvoice.display(inputs);
 
