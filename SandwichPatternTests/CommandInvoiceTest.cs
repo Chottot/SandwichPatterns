@@ -4,13 +4,13 @@ namespace SandwichPatternTests;
 
 public class CommandInvoiceTest
 {
-    private StringWriter stringWriter = new StringWriter();
+    private StringWriter _stringWriter = new StringWriter();
 
-    private CommandInvoice _comandInvoice;
-    private Sandwich _sandwich1;
-    private Sandwich _sandwich2;
-    private double sandwich1Price;
-    private double sandwich2Price;
+    private CommandInvoice _commandInvoice = null!;
+    private Sandwich _sandwich1 = null!;
+    private Sandwich _sandwich2 = null!;
+    private double _sandwich1Price;
+    private double _sandwich2Price;
 
     [SetUp]
     public void Setup()
@@ -22,18 +22,18 @@ public class CommandInvoiceTest
 
         _sandwich1 = new Sandwich("sandwich1",
             new Dictionary<Ingredient, int> { { ing1, 1 }, { ing2, 2 }, { ing3, 3 } });
-        sandwich1Price = 2.3;
+        _sandwich1Price = 2.3;
         _sandwich2 = new Sandwich("sandwich2",
             new Dictionary<Ingredient, int> { { ing4, 4 }, { ing2, 2 }, { ing3, 3 } });
-        sandwich2Price = 5.4;
+        _sandwich2Price = 5.4;
 
         var prices = new Dictionary<Sandwich, double>()
-            { { _sandwich1, sandwich1Price }, { _sandwich2, sandwich2Price } };
+            { { _sandwich1, _sandwich1Price }, { _sandwich2, _sandwich2Price } };
 
-        _comandInvoice = new CommandInvoice(prices);
+        _commandInvoice = new CommandInvoice(prices);
 
-        stringWriter = new StringWriter();
-        Console.SetOut(stringWriter);
+        _stringWriter = new StringWriter();
+        Console.SetOut(_stringWriter);
     }
 
 
@@ -45,9 +45,9 @@ public class CommandInvoiceTest
 
         const string expected = "1 sandwich1\r\n\tingredient1\r\n\tingredient2\r\n\tingredient3\r\nPrix total :2,3€\r\n";
 
-        _comandInvoice.display(inputs);
+        _commandInvoice.Display(inputs);
 
-        Assert.That(stringWriter.ToString(), Is.EqualTo(expected));
+        Assert.That(_stringWriter.ToString(), Is.EqualTo(expected));
     }
 
     [Test]
@@ -58,9 +58,9 @@ public class CommandInvoiceTest
 
         const string expected = "2 sandwich1\r\n\tingredient1\r\n\tingredient2\r\n\tingredient3\r\nPrix total :4,6€\r\n";
 
-        _comandInvoice.display(inputs);
+        _commandInvoice.Display(inputs);
 
-        Assert.That(stringWriter.ToString(), Is.EqualTo(expected));
+        Assert.That(_stringWriter.ToString(), Is.EqualTo(expected));
     }
 
     [Test]
@@ -71,8 +71,8 @@ public class CommandInvoiceTest
 
         const string expected = "1 sandwich1\r\n\tingredient1\r\n\tingredient2\r\n\tingredient3\r\n1 sandwich2\r\n\tingredient4\r\n\tingredient2\r\n\tingredient3\r\nPrix total :7,7€\r\n";
 
-        _comandInvoice.display(inputs);
+        _commandInvoice.Display(inputs);
 
-        Assert.That(stringWriter.ToString(), Is.EqualTo(expected));
+        Assert.That(_stringWriter.ToString(), Is.EqualTo(expected));
     }
 }

@@ -6,10 +6,10 @@ public class CommandParser
 
     public CommandParser(List<Sandwich> sandwiches)
     {
-        this._sandwiches = sandwiches;
+        _sandwiches = sandwiches;
     }
 
-    public Dictionary<Sandwich, int> parse(string[] args)
+    public Dictionary<Sandwich, int> Parse(string[] args)
     {
         var res = new Dictionary<Sandwich, int>();
         if (args.Length < 2 || args.Length % 2 != 0)

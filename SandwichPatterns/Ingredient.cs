@@ -6,6 +6,6 @@ public class Ingredient
 
     public Ingredient(string name)
     {
-        this.Name = name;
+        Name = name;
     }
 }

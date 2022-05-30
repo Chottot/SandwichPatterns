@@ -1,6 +1,6 @@
 ﻿namespace SandwichPatterns;
 
-public class SandwichPatterns
+public static class SandwichPatterns
 {
     public static void Main(string []args)
     {

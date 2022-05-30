@@ -4,9 +4,9 @@ namespace SandwichPatternTests;
 
 public class CommandParserTest
 {
-    private CommandParser _comandParser;
-    private Sandwich _sandwich1;
-    private Sandwich _sandwich2;
+    private CommandParser _commandParser = null!;
+    private Sandwich _sandwich1 = null!;
+    private Sandwich _sandwich2 = null!;
 
     [SetUp]
     public void Setup()
@@ -15,7 +15,7 @@ public class CommandParserTest
         _sandwich2 = new Sandwich("sandwich2", new Dictionary<Ingredient, int>());
         var sandwiches = new List<Sandwich> { _sandwich1, _sandwich2 };
 
-        _comandParser = new CommandParser(sandwiches);
+        _commandParser = new CommandParser(sandwiches);
     }
 
     [Test]
@@ -24,7 +24,7 @@ public class CommandParserTest
         string[] inputs = { "1", _sandwich1.Name };
         var expected = new Dictionary<Sandwich, int> { { _sandwich1, 1 } };
 
-        var res = _comandParser.parse(inputs);
+        var res = _commandParser.Parse(inputs);
 
         Assert.That(expected, Is.EqualTo(res));
     }
@@ -35,7 +35,7 @@ public class CommandParserTest
         string[] inputs = { "1", _sandwich1.Name, "1", _sandwich1.Name };
         var expected = new Dictionary<Sandwich, int> { { _sandwich1, 2 } };
 
-        var res = _comandParser.parse(inputs);
+        var res = _commandParser.Parse(inputs);
 
         Assert.That(expected, Is.EqualTo(res));
     }
@@ -46,7 +46,7 @@ public class CommandParserTest
         string[] inputs = { "1", _sandwich1.Name, "1", _sandwich2.Name };
         var expected = new Dictionary<Sandwich, int> { { _sandwich1, 1 }, { _sandwich2, 1 } };
 
-        var res = _comandParser.parse(inputs);
+        var res = _commandParser.Parse(inputs);
 
         Assert.That(expected, Is.EqualTo(res));
     }
@@ -57,7 +57,7 @@ public class CommandParserTest
         string[] inputs = { "1", _sandwich2.Name, "2", _sandwich1.Name, "2", _sandwich2.Name };
         var expected = new Dictionary<Sandwich, int> { { _sandwich1, 2 }, { _sandwich2, 3 } };
 
-        var res = _comandParser.parse(inputs);
+        var res = _commandParser.Parse(inputs);
 
         Assert.That(expected, Is.EqualTo(res));
     }

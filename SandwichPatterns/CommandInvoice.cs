@@ -6,10 +6,10 @@ public class CommandInvoice
 
     public CommandInvoice(Dictionary<Sandwich, double> ingredientPrices)
     {
-        this._ingredientPrices = ingredientPrices;
+        _ingredientPrices = ingredientPrices;
     }
 
-    public void display(Dictionary<Sandwich, int> command)
+    public void Display(Dictionary<Sandwich, int> command)
     {
         double sum = 0;
 

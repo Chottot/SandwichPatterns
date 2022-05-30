@@ -1,1 +1,6 @@
 ﻿/.idea/
+SandwichPatterns/bin/
+SandwichPatterns/obj/
+SandwichPatternTests/bin/
+SandwichPatternTests/obj/
+*.user
