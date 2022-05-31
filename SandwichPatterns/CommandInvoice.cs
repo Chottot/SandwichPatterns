@@ -2,11 +2,11 @@ namespace SandwichPatterns;
 
 public class CommandInvoice
 {
-    private readonly Dictionary<Sandwich, double> _ingredientPrices;
+    private readonly Dictionary<Sandwich, double> _sandwichPrices;
 
-    public CommandInvoice(Dictionary<Sandwich, double> ingredientPrices)
+    public CommandInvoice(Dictionary<Sandwich, double> sandwichPrices)
     {
-        _ingredientPrices = ingredientPrices;
+        _sandwichPrices = sandwichPrices;
     }
 
     public void Display(Dictionary<Sandwich, int> command)
@@ -15,20 +15,21 @@ public class CommandInvoice
 
         foreach (var sandwich in command)
         {
-            if (!_ingredientPrices.ContainsKey(sandwich.Key))
+            if (!_sandwichPrices.ContainsKey(sandwich.Key))
             {
                 throw new Exception("undefined sandwich");
             }
 
-            sum += _ingredientPrices[sandwich.Key] * sandwich.Value;
-            
+            sum += _sandwichPrices[sandwich.Key] * sandwich.Value;
+
             Console.WriteLine(sandwich.Value + " " + sandwich.Key.Name);
 
             foreach (var ingredient in sandwich.Key.Ingredients)
             {
-                Console.WriteLine("\t"+ingredient.Key.Name);
+                Console.WriteLine("\t" + ingredient.Key.Name + " : " + ingredient.Value);
             }
         }
-        Console.WriteLine("Prix total :" + sum +"€");
+
+        Console.WriteLine("Prix total : " + sum + "€");
     }
 }

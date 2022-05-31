@@ -21,13 +21,13 @@ public class CommandInvoiceTest
         var ing4 = new Ingredient("ingredient4");
 
         _sandwich1 = new Sandwich("sandwich1",
-            new Dictionary<Ingredient, int> { { ing1, 1 }, { ing2, 2 }, { ing3, 3 } });
+            new Dictionary<Ingredient, double> { { ing1, 1 }, { ing2, 2 }, { ing3, 3 } });
         _sandwich1Price = 2.3;
         _sandwich2 = new Sandwich("sandwich2",
-            new Dictionary<Ingredient, int> { { ing4, 4 }, { ing2, 2 }, { ing3, 3 } });
+            new Dictionary<Ingredient, double> { { ing4, 4 }, { ing2, 2 }, { ing3, 3 } });
         _sandwich2Price = 5.4;
 
-        var prices = new Dictionary<Sandwich, double>()
+        var prices = new Dictionary<Sandwich, double>
             { { _sandwich1, _sandwich1Price }, { _sandwich2, _sandwich2Price } };
 
         _commandInvoice = new CommandInvoice(prices);
