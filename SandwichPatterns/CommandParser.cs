@@ -19,9 +19,9 @@ public class CommandParser
         {
             var str = variable.Trim();
             var i = str.IndexOf(' ');
-            args.Add( str.Substring(0, i) );
+            args.Add( str[..i] );
             
-            args.Add( str.Substring(i+1) );
+            args.Add( str[(i+1)..] );
         }
         
         return Parse(args.ToArray());
