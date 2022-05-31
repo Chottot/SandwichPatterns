@@ -2,9 +2,9 @@ namespace SandwichPatterns;
 
 public class CommandInvoice
 {
-    private readonly Dictionary<Sandwich, double> _sandwichPrices;
+    private readonly Dictionary<Sandwich, Price> _sandwichPrices;
 
-    public CommandInvoice(Dictionary<Sandwich, double> sandwichPrices)
+    public CommandInvoice(Dictionary<Sandwich, Price> sandwichPrices)
     {
         _sandwichPrices = sandwichPrices;
     }
@@ -20,7 +20,7 @@ public class CommandInvoice
                 throw new Exception("undefined sandwich");
             }
 
-            sum += _sandwichPrices[sandwich.Key] * sandwich.Value;
+            sum += _sandwichPrices[sandwich.Key].Value * sandwich.Value;
 
             Console.WriteLine(sandwich.Value + " " + sandwich.Key.Name);
 

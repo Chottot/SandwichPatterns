@@ -6,9 +6,9 @@ public class Sandwich
 
     public Dictionary<Ingredient, Quantity> Ingredients { get; }
 
-    public static Dictionary<Sandwich, double> DefaultSandwichesWithPrices()
+    public static Dictionary<Sandwich, Price> DefaultSandwichesWithPrices()
     {
-        return new Dictionary<Sandwich, double>
+        return new Dictionary<Sandwich, Price>
         {
             {
                 new("Jambon beurre", new Dictionary<Ingredient, Quantity>
@@ -17,7 +17,7 @@ public class Sandwich
                     { new Ingredient("jambon"), new Quantity(QuantityUnit.Slice, 1) },
                     { new Ingredient("beurre"), new Quantity(QuantityUnit.Gram, 10) }
                 }),
-                3.5
+                new Price( Currency.Euro, 3.5)
             },
             {
                 new("Poulet crudités", new Dictionary<Ingredient, Quantity>
@@ -29,7 +29,7 @@ public class Sandwich
                     { new Ingredient("mayonnaise"), new Quantity(QuantityUnit.Gram, 10) },
                     { new Ingredient("salade"), new Quantity(QuantityUnit.Gram, 10) }
                 }),
-                5
+                new Price( Currency.Euro, 5)
             },
             {
                 new("Dieppois", new Dictionary<Ingredient, Quantity>
@@ -40,7 +40,7 @@ public class Sandwich
                     { new Ingredient("mayonnaise"), new Quantity(QuantityUnit.Gram, 10) },
                     { new Ingredient("salade"), new Quantity(QuantityUnit.Gram, 10) }
                 }),
-                4.5
+                new Price( Currency.Euro, 4.5)
             }
         };
     }

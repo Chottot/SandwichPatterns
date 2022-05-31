@@ -9,8 +9,8 @@ public class CommandInvoiceTest
     private CommandInvoice _commandInvoice = null!;
     private Sandwich _sandwich1 = null!;
     private Sandwich _sandwich2 = null!;
-    private double _sandwich1Price;
-    private double _sandwich2Price;
+    private Price _sandwich1Price = null!;
+    private Price _sandwich2Price = null!;
 
     [SetUp]
     public void Setup()
@@ -22,12 +22,12 @@ public class CommandInvoiceTest
 
         _sandwich1 = new Sandwich("sandwich1",
             new Dictionary<Ingredient, Quantity> { { ing1, new Quantity(QuantityUnit.Gram, 10) }, { ing2, new Quantity(QuantityUnit.Slice, 0.5) }, { ing3, new Quantity(QuantityUnit.Unit, 0.1) } });
-        _sandwich1Price = 2.3;
+        _sandwich1Price = new Price( Currency.Euro,  2.3);
         _sandwich2 = new Sandwich("sandwich2",
             new Dictionary<Ingredient, Quantity> { { ing4, new Quantity(QuantityUnit.Gram, 15) }, { ing2, new Quantity(QuantityUnit.Slice, 2) }, { ing3, new Quantity(QuantityUnit.Unit, 3) } });
-        _sandwich2Price = 5.4;
+        _sandwich2Price =new Price( Currency.Euro,  5.4);
 
-        var prices = new Dictionary<Sandwich, double>
+        var prices = new Dictionary<Sandwich, Price>
             { { _sandwich1, _sandwich1Price }, { _sandwich2, _sandwich2Price } };
 
         _commandInvoice = new CommandInvoice(prices);
