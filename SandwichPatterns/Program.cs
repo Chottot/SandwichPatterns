@@ -4,11 +4,12 @@ namespace SandwichPatterns;
 
 public static class SandwichPatterns
 {
+
     public static void Main()
     {
         Console.OutputEncoding = Encoding.UTF8;
-        var sandwichesWithPrices = Sandwich.DefaultSandwichesWithPrices();
-        var commandParser = new CommandParser(new List<Sandwich>(sandwichesWithPrices.Keys));
+        var sandwichesWithPrices = SandwichRepository.getDefault();
+        var commandParser = new CommandParser(sandwichesWithPrices);
         var commandInvoice = new CommandInvoice(sandwichesWithPrices);
         while (true)
         {
