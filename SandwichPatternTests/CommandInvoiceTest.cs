@@ -30,7 +30,7 @@ public class CommandInvoiceTest
         var prices = new Dictionary<Sandwich, Price>
             { { _sandwich1, _sandwich1Price }, { _sandwich2, _sandwich2Price } };
 
-        _commandInvoice = new CommandInvoice(prices);
+        _commandInvoice = new CommandInvoice( new SandwichRepository(prices));
 
         _stringWriter = new StringWriter();
         Console.SetOut(_stringWriter);

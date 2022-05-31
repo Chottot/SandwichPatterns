@@ -2,9 +2,9 @@ namespace SandwichPatterns;
 
 public class CommandParser
 {
-    private readonly List<Sandwich> _sandwiches;
+    private readonly SandwichRepository _sandwiches;
 
-    public CommandParser(List<Sandwich> sandwiches)
+    public CommandParser(SandwichRepository sandwiches)
     {
         _sandwiches = sandwiches;
     }
@@ -39,7 +39,7 @@ public class CommandParser
         {
             int nb = short.Parse(args[i]);
 
-            var sandwich = _sandwiches.Find(sandwich => sandwich.Name == args[i + 1]);
+            var sandwich = _sandwiches.GetSandwich( args[i + 1]);
             if (sandwich == null)
             {
                 throw new Exception("undefined sandwich \"" + args[i + 1]+ "\"");
