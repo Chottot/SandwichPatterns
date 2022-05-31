@@ -30,9 +30,31 @@ public class CommandParserTest
     }
 
     [Test]
+    public void should_get_one_sandwich1_from_line()
+    {
+        var inputs = "1 " + _sandwich1.Name;
+        var expected = new Dictionary<Sandwich, int> { { _sandwich1, 1 } };
+
+        var res = _commandParser.Parse(inputs);
+
+        Assert.That(expected, Is.EqualTo(res));
+    }
+
+    [Test]
     public void should_get_two_sandwich1()
     {
         string[] inputs = { "1", _sandwich1.Name, "1", _sandwich1.Name };
+        var expected = new Dictionary<Sandwich, int> { { _sandwich1, 2 } };
+
+        var res = _commandParser.Parse(inputs);
+
+        Assert.That(expected, Is.EqualTo(res));
+    }
+
+    [Test]
+    public void should_get_two_sandwich1_from_one_line()
+    {
+        var inputs = "1 " + _sandwich1.Name + ", 1 " + _sandwich1.Name;
         var expected = new Dictionary<Sandwich, int> { { _sandwich1, 2 } };
 
         var res = _commandParser.Parse(inputs);
@@ -50,11 +72,22 @@ public class CommandParserTest
 
         Assert.That(expected, Is.EqualTo(res));
     }
-    
+
     [Test]
-    public void should_get_Two_sandwich1_and_three_sandwich2()
+    public void should_get_two_sandwich1_and_three_sandwich2()
     {
         string[] inputs = { "1", _sandwich2.Name, "2", _sandwich1.Name, "2", _sandwich2.Name };
+        var expected = new Dictionary<Sandwich, int> { { _sandwich1, 2 }, { _sandwich2, 3 } };
+
+        var res = _commandParser.Parse(inputs);
+
+        Assert.That(expected, Is.EqualTo(res));
+    }
+
+    [Test]
+    public void should_get_two_sandwich1_and_three_sandwich2_from_one_line()
+    {
+        var inputs = "1 " + _sandwich2.Name + ", 2 " + _sandwich1.Name + ", 2 " + _sandwich2.Name;
         var expected = new Dictionary<Sandwich, int> { { _sandwich1, 2 }, { _sandwich2, 3 } };
 
         var res = _commandParser.Parse(inputs);

@@ -18,8 +18,16 @@ public static class SandwichPatterns
             {
                 break;
             }
-            var command = commandParser.Parse(commandWanted.Split());
-            commandInvoice.Display(command);
+
+            try
+            {
+                var command = commandParser.Parse(commandWanted);
+                commandInvoice.Display(command);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error: "+ e.Message);
+            }
         }
     }   
 }
