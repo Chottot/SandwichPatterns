@@ -9,11 +9,11 @@ public class CommandInvoice
         _sandwichPrices = sandwichPrices;
     }
 
-    public void Display(Dictionary<Sandwich, int> command)
+    public void Display(Order command)
     {
         double sum = 0;
 
-        foreach (var sandwich in command)
+        foreach (var sandwich in command.Sandwich)
         {
             if (!_sandwichPrices.ContainsKey(sandwich.Key))
             {

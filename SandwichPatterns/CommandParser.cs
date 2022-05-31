@@ -9,7 +9,7 @@ public class CommandParser
         _sandwiches = sandwiches;
     }
 
-    public Dictionary<Sandwich, int> Parse(string line)
+    public Order Parse(string line)
     {
         var args = new List<string>();
 
@@ -27,7 +27,7 @@ public class CommandParser
         return Parse(args.ToArray());
     }
 
-    public Dictionary<Sandwich, int> Parse(string[] args)
+    public Order Parse(string[] args)
     {
         var res = new Dictionary<Sandwich, int>();
         if (args.Length < 2 || args.Length % 2 != 0)
@@ -55,6 +55,6 @@ public class CommandParser
             }
         }
 
-        return res;
+        return new Order(res);
     }
 }

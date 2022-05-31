@@ -40,12 +40,11 @@ public class CommandInvoiceTest
     [Test]
     public void should_get_one_sandwich1()
     {
-        var inputs = new Dictionary<Sandwich, int>()
-            { { _sandwich1, 1 } };
+        var inputs = new Dictionary<Sandwich, int> { { _sandwich1, 1 } };
 
         const string expected = "1 sandwich1\r\n\tingredient1 : 10 g\r\n\tingredient2 : 0,5 slice\r\n\tingredient3 : 0,1 \r\nPrix total : 2,3€\r\n";
 
-        _commandInvoice.Display(inputs);
+        _commandInvoice.Display( new Order(inputs) );
 
         Assert.That(_stringWriter.ToString(), Is.EqualTo(expected));
     }
@@ -53,12 +52,12 @@ public class CommandInvoiceTest
     [Test]
     public void should_get_two_sandwich1()
     {
-        var inputs = new Dictionary<Sandwich, int>()
+        var inputs = new Dictionary<Sandwich, int>
             { { _sandwich1, 2 } };
 
         const string expected = "2 sandwich1\r\n\tingredient1 : 10 g\r\n\tingredient2 : 0,5 slice\r\n\tingredient3 : 0,1 \r\nPrix total : 4,6€\r\n";
 
-        _commandInvoice.Display(inputs);
+        _commandInvoice.Display(new Order(inputs));
 
         Assert.That(_stringWriter.ToString(), Is.EqualTo(expected));
     }
@@ -66,12 +65,12 @@ public class CommandInvoiceTest
     [Test]
     public void should_get_one_sandwich1_one_sandwich2()
     {
-        var inputs = new Dictionary<Sandwich, int>()
+        var inputs = new Dictionary<Sandwich, int>
             { { _sandwich1, 1 }, { _sandwich2, 1 } };
 
         const string expected = "1 sandwich1\r\n\tingredient1 : 10 g\r\n\tingredient2 : 0,5 slice\r\n\tingredient3 : 0,1 \r\n1 sandwich2\r\n\tingredient4 : 15 g\r\n\tingredient2 : 2 slice\r\n\tingredient3 : 3 \r\nPrix total : 7,7€\r\n";
 
-        _commandInvoice.Display(inputs);
+        _commandInvoice.Display( new Order(inputs) );
 
         Assert.That(_stringWriter.ToString(), Is.EqualTo(expected));
     }
