@@ -4,48 +4,48 @@ public class Sandwich
 {
     public string Name { get; }
 
-    public Dictionary<Ingredient, double> Ingredients { get; }
+    public Dictionary<Ingredient, Quantity> Ingredients { get; }
 
     public static Dictionary<Sandwich, double> DefaultSandwichesWithPrices()
     {
         return new Dictionary<Sandwich, double>
         {
             {
-                new("Jambon beurre", new Dictionary<Ingredient, double>
+                new("Jambon beurre", new Dictionary<Ingredient, Quantity>
                 {
-                    { new Ingredient("pain"), 1 },
-                    { new Ingredient("tranche de jambon"), 1 },
-                    { new Ingredient("beurre en g"), 10 }
+                    { new Ingredient("pain"), new Quantity(QuantityUnit.Unit, 1) },
+                    { new Ingredient("jambon"), new Quantity(QuantityUnit.Slice, 1) },
+                    { new Ingredient("beurre"), new Quantity(QuantityUnit.Gram, 10) }
                 }),
                 3.5
             },
             {
-                new("Poulet crudités", new Dictionary<Ingredient, double>
+                new("Poulet crudités", new Dictionary<Ingredient, Quantity>
                 {
-                    { new Ingredient("pain"), 1 },
-                    { new Ingredient("oeuf"), 1 },
-                    { new Ingredient("tomate"), 0.5 },
-                    { new Ingredient("tranche de poulet"), 1 },
-                    { new Ingredient("mayonnaise en g"), 10 },
-                    { new Ingredient("salade en g"), 10 }
+                    { new Ingredient("pain"), new Quantity(QuantityUnit.Unit, 1) },
+                    { new Ingredient("oeuf"), new Quantity(QuantityUnit.Unit, 1) },
+                    { new Ingredient("tomate"), new Quantity(QuantityUnit.Unit, 0.5) },
+                    { new Ingredient("poulet"), new Quantity(QuantityUnit.Unit, 1) },
+                    { new Ingredient("mayonnaise"), new Quantity(QuantityUnit.Gram, 10) },
+                    { new Ingredient("salade"), new Quantity(QuantityUnit.Gram, 10) }
                 }),
                 5
             },
             {
-                new("Dieppois", new Dictionary<Ingredient, double>
+                new("Dieppois", new Dictionary<Ingredient, Quantity>
                 {
-                    { new Ingredient("pain"), 1 },
-                    { new Ingredient("thon en g"), 50 },
-                    { new Ingredient("tomate"), 0.5 },
-                    { new Ingredient("mayonnaise en g"), 10 },
-                    { new Ingredient("salade en g"), 10 }
+                    { new Ingredient("pain"), new Quantity(QuantityUnit.Unit, 1) },
+                    { new Ingredient("thon"), new Quantity(QuantityUnit.Gram, 50) },
+                    { new Ingredient("tomate"), new Quantity(QuantityUnit.Unit, 0.5) },
+                    { new Ingredient("mayonnaise"), new Quantity(QuantityUnit.Gram, 10) },
+                    { new Ingredient("salade"), new Quantity(QuantityUnit.Gram, 10) }
                 }),
                 4.5
             }
         };
     }
 
-    public Sandwich(string name, Dictionary<Ingredient, double> ingredients)
+    public Sandwich(string name, Dictionary<Ingredient, Quantity> ingredients)
     {
         Name = name;
         Ingredients = ingredients;

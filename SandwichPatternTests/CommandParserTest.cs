@@ -11,8 +11,8 @@ public class CommandParserTest
     [SetUp]
     public void Setup()
     {
-        _sandwich1 = new Sandwich("sandwich1", new Dictionary<Ingredient, double>());
-        _sandwich2 = new Sandwich("sandwich2", new Dictionary<Ingredient, double>());
+        _sandwich1 = new Sandwich("sandwich1", new Dictionary<Ingredient, Quantity>());
+        _sandwich2 = new Sandwich("sandwich2", new Dictionary<Ingredient, Quantity>());
         var sandwiches = new List<Sandwich> { _sandwich1, _sandwich2 };
 
         _commandParser = new CommandParser(sandwiches);
