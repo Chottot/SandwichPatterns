@@ -19,11 +19,11 @@ public class CommandParser
         {
             var str = variable.Trim();
             var i = str.IndexOf(' ');
-            args.Add( str[..i] );
-            
-            args.Add( str[(i+1)..] );
+            args.Add(str[..i]);
+
+            args.Add(str[(i + 1)..]);
         }
-        
+
         return Parse(args.ToArray());
     }
 
@@ -39,10 +39,10 @@ public class CommandParser
         {
             int nb = short.Parse(args[i]);
 
-            var sandwich = _sandwiches.GetSandwichByName( args[i + 1]);
+            var sandwich = _sandwiches.GetSandwichByName(args[i + 1]);
             if (sandwich == null)
             {
-                throw new Exception("undefined sandwich \"" + args[i + 1]+ "\"");
+                throw new Exception("undefined sandwich \"" + args[i + 1] + "\"");
             }
 
             if (res.ContainsKey(sandwich))

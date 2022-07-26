@@ -8,9 +8,9 @@ public class Currency
     {
         Str = str;
     }
-    
+
     public static Currency Euro => new Currency("€");
-    
+
     public static Currency Dollar => new Currency("$");
 
     public override string ToString()

@@ -5,12 +5,11 @@ public class Sandwich
     public string Name { get; }
 
     public Dictionary<Ingredient, Quantity> Ingredients { get; }
-    
+
     public Sandwich(string name, IDictionary<Ingredient, Quantity> ingredients)
     {
         Name = name;
         Ingredients = new Dictionary<Ingredient, Quantity>(ingredients);
-        
     }
 
     private bool Equals(Sandwich other)
