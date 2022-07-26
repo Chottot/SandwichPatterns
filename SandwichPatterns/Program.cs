@@ -11,6 +11,7 @@ public static class SandwichPatterns
         var sandwichesWithPrices = SandwichRepository.getDefault();
         var commandParser = new CommandParser(sandwichesWithPrices);
         var commandInvoice = new CommandInvoice(sandwichesWithPrices);
+        
         while (true)
         {
             Console.WriteLine("Enter a sandwich pattern:");

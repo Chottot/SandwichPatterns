@@ -17,7 +17,7 @@ public class Quantity
         return Value +" "+ Unit ;
     }
 
-    protected bool Equals(Quantity other)
+    private bool Equals(Quantity other)
     {
         return Unit.Equals(other.Unit) && Value.Equals(other.Value);
     }
@@ -26,8 +26,7 @@ public class Quantity
     {
         if (ReferenceEquals(null, obj)) return false;
         if (ReferenceEquals(this, obj)) return true;
-        if (obj.GetType() != this.GetType()) return false;
-        return Equals((Quantity)obj);
+        return obj.GetType() == this.GetType() && Equals((Quantity)obj);
     }
 
     public override int GetHashCode()

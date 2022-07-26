@@ -17,7 +17,7 @@ public class Price
         return Value + " " + Currency;
     }
 
-    protected bool Equals(Price other)
+    private bool Equals(Price other)
     {
         return Currency.Equals(other.Currency) && Value.Equals(other.Value);
     }

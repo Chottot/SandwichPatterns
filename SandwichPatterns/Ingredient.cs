@@ -9,7 +9,7 @@ public class Ingredient
         Name = name;
     }
 
-    protected bool Equals(Ingredient other)
+    private bool Equals(Ingredient other)
     {
         return Name.Equals(other.Name);
     }

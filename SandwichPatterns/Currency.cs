@@ -18,7 +18,7 @@ public class Currency
         return Str;
     }
 
-    protected bool Equals(Currency other)
+    private bool Equals(Currency other)
     {
         return Str == other.Str;
     }
@@ -27,8 +27,7 @@ public class Currency
     {
         if (ReferenceEquals(null, obj)) return false;
         if (ReferenceEquals(this, obj)) return true;
-        if (obj.GetType() != this.GetType()) return false;
-        return Equals((Currency)obj);
+        return obj.GetType() == this.GetType() && Equals((Currency)obj);
     }
 
     public override int GetHashCode()

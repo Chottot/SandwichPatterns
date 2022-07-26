@@ -9,7 +9,7 @@ public class Order
         Sandwich = sandwich;
     }
 
-    protected bool Equals(Order other)
+    private bool Equals(Order other)
     {
         return Sandwich.Count == other.Sandwich.Count && !Sandwich.Except(other.Sandwich).Any();
     }

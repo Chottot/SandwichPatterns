@@ -2,7 +2,7 @@
 
 public class SandwichRepository
 {
-    public Dictionary<Sandwich, Price> Sandwich { get; }
+    private Dictionary<Sandwich, Price> Sandwich { get; }
 
     public SandwichRepository(Dictionary<Sandwich, Price> sandwich)
     {
@@ -52,7 +52,7 @@ public class SandwichRepository
         });
     }
 
-    public Sandwich GetSandwich(string name)
+    public Sandwich GetSandwichByName(string name)
     {
         return Sandwich.Keys.First(sandwich => sandwich.Name == name);
     }

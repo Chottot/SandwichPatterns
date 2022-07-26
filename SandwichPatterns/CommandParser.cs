@@ -39,7 +39,7 @@ public class CommandParser
         {
             int nb = short.Parse(args[i]);
 
-            var sandwich = _sandwiches.GetSandwich( args[i + 1]);
+            var sandwich = _sandwiches.GetSandwichByName( args[i + 1]);
             if (sandwich == null)
             {
                 throw new Exception("undefined sandwich \"" + args[i + 1]+ "\"");
