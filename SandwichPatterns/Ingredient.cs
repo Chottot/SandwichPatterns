@@ -8,4 +8,22 @@ public class Ingredient
     {
         Name = name;
     }
+
+    private bool Equals(Ingredient other)
+    {
+        return Name.Equals(other.Name);
+    }
+
+    public override bool Equals(object? obj)
+    {
+        if (ReferenceEquals(null, obj)) return false;
+        if (ReferenceEquals(this, obj)) return true;
+        if (obj.GetType() != this.GetType()) return false;
+        return Equals((Ingredient)obj);
+    }
+
+    public override int GetHashCode()
+    {
+        return Name.GetHashCode();
+    }
 }

@@ -2,14 +2,14 @@ namespace SandwichPatterns;
 
 public class CommandParser
 {
-    private readonly List<Sandwich> _sandwiches;
+    private readonly SandwichRepository _sandwiches;
 
-    public CommandParser(List<Sandwich> sandwiches)
+    public CommandParser(SandwichRepository sandwiches)
     {
         _sandwiches = sandwiches;
     }
 
-    public Dictionary<Sandwich, int> Parse(string line)
+    public Order Parse(string line)
     {
         var args = new List<string>();
 
@@ -19,15 +19,15 @@ public class CommandParser
         {
             var str = variable.Trim();
             var i = str.IndexOf(' ');
-            args.Add( str.Substring(0, i) );
-            
-            args.Add( str.Substring(i+1) );
+            args.Add(str[..i]);
+
+            args.Add(str[(i + 1)..]);
         }
-        
+
         return Parse(args.ToArray());
     }
 
-    public Dictionary<Sandwich, int> Parse(string[] args)
+    public Order Parse(string[] args)
     {
         var res = new Dictionary<Sandwich, int>();
         if (args.Length < 2 || args.Length % 2 != 0)
@@ -39,10 +39,10 @@ public class CommandParser
         {
             int nb = short.Parse(args[i]);
 
-            var sandwich = _sandwiches.Find(sandwich => sandwich.Name == args[i + 1]);
+            var sandwich = _sandwiches.GetSandwichByName(args[i + 1]);
             if (sandwich == null)
             {
-                throw new Exception("undefined sandwich \"" + args[i + 1]+ "\"");
+                throw new Exception("undefined sandwich \"" + args[i + 1] + "\"");
             }
 
             if (res.ContainsKey(sandwich))
@@ -55,6 +55,6 @@ public class CommandParser
             }
         }
 
-        return res;
+        return new Order(res);
     }
 }
